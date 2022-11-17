@@ -10,6 +10,7 @@ if [[ -z $USERNAMEFOUND ]]
 then
 # not found
   echo "Welcome, $USERNAME! It looks like this is your first time here."
+  NEWUSER=$($PSQL "insert into usernames(username) values('$USERNAME');")
 else
   echo $USERNAMEFOUND : $RANDOM
 fi
