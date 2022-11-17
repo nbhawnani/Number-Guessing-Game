@@ -24,7 +24,7 @@ else
     done
   
   #generate secret number
-  SECRETNUMBER=$(($RANDOM % 1000))
+  SECRETNUMBER=$(( ( $RANDOM % 1000 ) + 1 ))
   echo $USERNAMEFOUND : $SECRETNUMBER
   TRIES=0
   while [[ $GUESS -ne $SECRETNUMBER ]]
