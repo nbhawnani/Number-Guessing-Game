@@ -38,12 +38,12 @@ else
       echo 'That is not an integer, guess again:'
     else
       #check if secret number is higher than the guess
-      if [[ $GUESS -le $SECRETNUMBER ]]
+      if [[ $GUESS -lt $SECRETNUMBER ]]
       then
         echo "It's higher than that, guess again:"
       fi
       #check if secret number is lower than the guess
-      if [[ $GUESS -ge $SECRETNUMBER ]]
+      if [[ $GUESS -gt $SECRETNUMBER ]]
       then
         echo "It's lower than that, guess again:"
       fi
