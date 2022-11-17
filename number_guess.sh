@@ -12,8 +12,15 @@ then
   echo "Welcome, $USERNAME! It looks like this is your first time here."
   NEWUSER=$($PSQL "insert into usernames(username) values('$USERNAME');")
 else
-#user found
-#print welcome message
+  #user found
+  GAMEFOUND=$($PSQL "select username,count(game_id),MIN(guess_count) from games where username='$USERNAME' group by username;")
+  echo "$GAMEFOUND" | while read USER BAR COUNT BAR MIN
+    do
+      #print welcome message
+      echo "Welcome back, $USER! You have played $COUNT games, and your best game took $MIN guesses." 
+      echo "Welcome back, <username>! You have played <games_played> games, and your best game took <best_game> guesses."
+    done
+  
   #generate secret number
   SECRETNUMBER=$(($RANDOM % 1000))
   echo $USERNAMEFOUND : $SECRETNUMBER
@@ -32,7 +39,7 @@ else
   #secret number is guessed
   echo You guessed it in $TRIES tries. The secret number was $SECRETNUMBER. Nice job!
   #insert into table
-  #NEWUSER=$($PSQL "insert into usernames(username) values('$USERNAME');")
+  NEWGAME=$($PSQL "insert into games(username,guess_count) values('$USERNAME',$TRIES);")
   
 fi
 
