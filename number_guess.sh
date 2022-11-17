@@ -15,7 +15,7 @@ else
   #user found
   #echo $USERNAMEFOUND
   GAMEFOUND=$($PSQL "select username,count(game_id),MIN(guess_count) from games  group by username having  username='$USERNAME';")
-  echo "GAMEFOUND:$GAMEFOUND"
+  #echo "GAMEFOUND:$GAMEFOUND"
   echo "$GAMEFOUND" | while read USER BAR COUNT BAR MIN
     do
       #print welcome message

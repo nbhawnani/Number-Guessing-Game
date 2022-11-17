@@ -113,6 +113,28 @@ INSERT INTO public.games VALUES (10, 'user_1668706381551', 926);
 INSERT INTO public.games VALUES (11, 'user_1668706381551', 687);
 INSERT INTO public.games VALUES (12, 'user_1668706381551', 59);
 INSERT INTO public.games VALUES (13, 'test2', 1);
+INSERT INTO public.games VALUES (14, 'test2', 1);
+INSERT INTO public.games VALUES (15, 'test1', 1);
+INSERT INTO public.games VALUES (16, 'test1', 1);
+INSERT INTO public.games VALUES (17, 'test1', 1);
+INSERT INTO public.games VALUES (18, 'test1', 1);
+INSERT INTO public.games VALUES (19, 'test3', 1);
+INSERT INTO public.games VALUES (20, 'test3', 1);
+INSERT INTO public.games VALUES (21, 'test1', 1);
+INSERT INTO public.games VALUES (22, 'test3', 1);
+INSERT INTO public.games VALUES (23, 'test1', 1);
+INSERT INTO public.games VALUES (24, 'user_1668723069112', 761);
+INSERT INTO public.games VALUES (25, 'user_1668723069111', 109);
+INSERT INTO public.games VALUES (26, 'user_1668723069112', 541);
+INSERT INTO public.games VALUES (27, 'user_1668723069112', 526);
+INSERT INTO public.games VALUES (28, 'user_1668723069112', 375);
+INSERT INTO public.games VALUES (29, 'test1', 8);
+INSERT INTO public.games VALUES (30, 'user_1668723396009', 335);
+INSERT INTO public.games VALUES (31, 'user_1668723396008', 502);
+INSERT INTO public.games VALUES (32, 'user_1668723396009', 375);
+INSERT INTO public.games VALUES (33, 'user_1668723396009', 875);
+INSERT INTO public.games VALUES (34, 'user_1668723396009', 676);
+INSERT INTO public.games VALUES (35, 'test1', 1);
 
 
 --
@@ -129,13 +151,18 @@ INSERT INTO public.usernames VALUES ('user_1668704728512');
 INSERT INTO public.usernames VALUES ('user_1668704728511');
 INSERT INTO public.usernames VALUES ('user_1668706381551');
 INSERT INTO public.usernames VALUES ('user_1668706381550');
+INSERT INTO public.usernames VALUES ('test3');
+INSERT INTO public.usernames VALUES ('user_1668723069112');
+INSERT INTO public.usernames VALUES ('user_1668723069111');
+INSERT INTO public.usernames VALUES ('user_1668723396009');
+INSERT INTO public.usernames VALUES ('user_1668723396008');
 
 
 --
 -- Name: games_game_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.games_game_id_seq', 13, true);
+SELECT pg_catalog.setval('public.games_game_id_seq', 35, true);
 
 
 --
