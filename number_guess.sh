@@ -13,12 +13,14 @@ then
   NEWUSER=$($PSQL "insert into usernames(username) values('$USERNAME');")
 else
   #user found
-  GAMEFOUND=$($PSQL "select username,count(game_id),MIN(guess_count) from games where username='$USERNAME' group by username;")
+  #echo $USERNAMEFOUND
+  GAMEFOUND=$($PSQL "select username,count(game_id),MIN(guess_count) from games  group by username having  username='$USERNAME';")
+  echo "GAMEFOUND:$GAMEFOUND"
   echo "$GAMEFOUND" | while read USER BAR COUNT BAR MIN
     do
       #print welcome message
       echo "Welcome back, $USER! You have played $COUNT games, and your best game took $MIN guesses." 
-      echo "Welcome back, <username>! You have played <games_played> games, and your best game took <best_game> guesses."
+    
     done
   
   #generate secret number
@@ -34,6 +36,17 @@ else
     then
       #not a number
       echo 'That is not an integer, guess again:'
+    else
+      #check if secret number is higher than the guess
+      if [[ $GUESS -le $SECRETNUMBER ]]
+      then
+        echo "It's higher than that, guess again:"
+      fi
+      #check if secret number is lower than the guess
+      if [[ $GUESS -ge $SECRETNUMBER ]]
+      then
+        echo "It's lower than that, guess again:"
+      fi
     fi
   done
   #secret number is guessed
