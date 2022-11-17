@@ -12,7 +12,22 @@ then
   echo "Welcome, $USERNAME! It looks like this is your first time here."
   NEWUSER=$($PSQL "insert into usernames(username) values('$USERNAME');")
 else
-  echo $USERNAMEFOUND : $RANDOM
+#user found
+#print welcome message
+  #generate secret number
+  SECRETNUMBER=$(($RANDOM % 1000))
+  echo $USERNAMEFOUND : $SECRETNUMBER
+  while [[ $GUESS -ne $SECRETNUMBER ]]
+  do
+    echo 'Guess the secret number between 1 and 1000:'
+    read GUESS
+    if [[ ! $GUESS =~ ^[0-9]+$ ]]
+    then
+      #not a number
+      echo 'That is not an integer, guess again:'
+    fi
+  done
+  
 fi
 
 
