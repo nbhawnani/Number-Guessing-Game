@@ -23,13 +23,16 @@ else
     
     done
   
+fi
+  
   #generate secret number
   SECRETNUMBER=$(($RANDOM%1000+1))
-  echo $USERNAMEFOUND : $SECRETNUMBER
+  echo $USERNAME : $SECRETNUMBER
   TRIES=0
+  echo 'Guess the secret number between 1 and 1000:'
   while [[ $GUESS -ne $SECRETNUMBER ]]
   do
-    echo 'Guess the secret number between 1 and 1000:'
+    
     read GUESS
     TRIES=$((TRIES+1))
     if [[ ! $GUESS =~ ^[0-9]+$ ]]
@@ -54,6 +57,6 @@ else
   #insert into table
   NEWGAME=$($PSQL "insert into games(username,guess_count) values('$USERNAME',$TRIES);")
   
-fi
+
 
 
